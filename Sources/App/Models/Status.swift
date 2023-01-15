@@ -7,13 +7,13 @@ final class Status: Model, Content {
     @ID(key: .id)
     var id: UUID?
 
-    @Field(key: "title")
+    @Field(key: .title)
     var title: String
 
-    @Field(key: "color")
+    @Field(key: .color)
     var color: String
 
-    @Enum(key: "statusEquivalent")
+    @Enum(key: .statusEquivalent)
     var statusEquivalent: StatusEquivalent
 
     @Children(for: \.$status)

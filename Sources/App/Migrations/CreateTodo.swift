@@ -2,18 +2,18 @@ import Fluent
 
 struct CreateTodo: AsyncMigration {
     func prepare(on database: Database) async throws {
-        try await database.schema("todos")
+        try await database.schema(Schema.todos)
             .id()
-            .field("title", .string, .required)
-            .field("description", .string)
-            .field("order", .int)
-            .field("createdAt", .date)
-            .field("updatedAt", .date)
-            .field("statusID", .uuid)
+            .field(.title, .string, .required)
+            .field(.description, .string)
+            .field(.order, .double)
+            .field(.createdAt, .datetime)
+            .field(.updatedAt, .datetime)
+            .field(.statusID, .uuid, .references(Schema.status, .id))
             .create()
     }
 
     func revert(on database: Database) async throws {
-        try await database.schema("todos").delete()
+        try await database.schema(Schema.todos).delete()
     }
 }

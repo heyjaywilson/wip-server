@@ -2,27 +2,27 @@ import Fluent
 import Vapor
 
 final class Todo: Model, Content {
-    static let schema = "todos"
+    static let schema = Schema.todos
     
     @ID(key: .id)
     var id: UUID?
 
-    @Field(key: "title")
+    @Field(key: .title)
     var title: String
 
-    @Field(key: "description")
+    @Field(key: .description)
     var description: String?
 
-    @Field(key: "order")
-    var order: Int
+    @Field(key: .order)
+    var order: Double
 
-    @Timestamp(key: "createdAt", on: .create)
+    @Timestamp(key: .createdAt, on: .create)
     var createdAt: Date?
 
-    @Timestamp(key: "updatedAt", on: .update)
+    @Timestamp(key: .updatedAt, on: .update)
     var updatedAt: Date?
 
-    @Parent(key: "statusID")
+    @Parent(key: .statusID)
     var status: Status
 
     init() { }
@@ -31,11 +31,11 @@ final class Todo: Model, Content {
         id: UUID? = nil,
         title: String,
         description: String? = nil,
-        statusID: Status.IDValue
+        statusID: UUID? = nil
     ) {
         self.id = id
         self.title = title
         self.description = description
-        self.$status.id = statusID
+        self.$status.id = UUID(uuidString: "624f59d6-6cc6-4d16-b760-a483369db7a3")!
     }
 }

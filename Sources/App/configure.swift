@@ -16,8 +16,9 @@ public func configure(_ app: Application) async throws {
         database: Environment.get("DATABASE_NAME") ?? "vapor_database"
     ), as: .psql)
 
-    app.migrations.add(CreateTodo())
     app.migrations.add(CreateStatus())
+    app.migrations.add(CreateTodo())
+
     try await app.autoMigrate()
 
     app.views.use(.leaf)
