@@ -14,3 +14,15 @@ struct CreateStatus: AsyncMigration {
         try await database.schema(Schema.status).delete()
     }
 }
+
+struct StatusAddDescription: AsyncMigration {
+    func prepare(on database: Database) async throws {
+        try await database.schema(Schema.status)
+            .field(.description, .string)
+            .update()
+    }
+
+    func revert(on database: Database) async throws {
+        try await database.schema(Schema.status).deleteField(.description)
+    }
+}

@@ -13,6 +13,9 @@ final class Status: Model, Content {
     @Field(key: .color)
     var color: String
 
+    @Field(key: .description)
+    var description: String
+
     @Enum(key: .statusEquivalent)
     var statusEquivalent: StatusEquivalent
 
@@ -25,11 +28,13 @@ final class Status: Model, Content {
         id: UUID? = nil,
         title: String,
         statusEquivalent: StatusEquivalent,
+        description: String,
         color: String
     ) {
         self.id = id
         self.title = title
         self.statusEquivalent = .backlog
+        self.description = description
         self.color = color
     }
 }

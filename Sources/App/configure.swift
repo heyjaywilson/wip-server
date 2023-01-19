@@ -18,6 +18,7 @@ public func configure(_ app: Application) async throws {
 
     app.migrations.add(CreateStatus())
     app.migrations.add(CreateTodo())
+    app.migrations.add(StatusAddDescription())
 
     try await app.autoMigrate()
 
