@@ -3,7 +3,7 @@ import Vapor
 
 struct StatusController: RouteCollection {
     func boot(routes: RoutesBuilder) throws {
-        let status = routes.grouped("todoStatus")
+        let status = routes.grouped("statuses")
         status.get(use: index)
         status.post(use: create)
         status.group(":statusID") { status in

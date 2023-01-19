@@ -16,6 +16,9 @@ final class Project: Model, Content {
     @Parent(key: .statusID)
     var status: Status
 
+    @Children(for: \.$project)
+    var todos: [Todo]
+
     init() { }
 
     init(

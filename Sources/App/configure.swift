@@ -17,6 +17,7 @@ public func configure(_ app: Application) async throws {
     ), as: .psql)
 
     app.migrations.add(CreateStatus())
+    app.migrations.add(CreateProject())
     app.migrations.add(CreateTodo())
     app.migrations.add(StatusAddDescription())
 

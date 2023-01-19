@@ -25,17 +25,22 @@ final class Todo: Model, Content {
     @Parent(key: .statusID)
     var status: Status
 
+    @Parent(key: .projectID)
+    var project: Project
+
     init() { }
 
     init(
         id: UUID? = nil,
         title: String,
         description: String? = nil,
-        statusID: UUID? = nil
+        statusID: UUID,
+        projectID: UUID
     ) {
         self.id = id
         self.title = title
         self.description = description
-        self.$status.id = UUID(uuidString: "624f59d6-6cc6-4d16-b760-a483369db7a3")!
+        self.$status.id = statusID
+        self.$project.id = projectID
     }
 }

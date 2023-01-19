@@ -10,6 +10,7 @@ struct CreateTodo: AsyncMigration {
             .field(.createdAt, .datetime)
             .field(.updatedAt, .datetime)
             .field(.statusID, .uuid, .references(Schema.status, .id))
+            .field(.projectID, .uuid, .references(Schema.projects, .id))
             .create()
     }
 

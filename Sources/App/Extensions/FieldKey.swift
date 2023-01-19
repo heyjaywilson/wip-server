@@ -17,4 +17,5 @@ extension FieldKey {
     static let createdAt: FieldKey = "created_at"
     static let updatedAt: FieldKey = "updated_at"
     static let statusID: FieldKey = "status_id"
+    static let projectID: FieldKey = "project_id"
 }
