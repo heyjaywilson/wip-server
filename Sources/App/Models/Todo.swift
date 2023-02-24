@@ -22,6 +22,13 @@ final class Todo: Model, Content {
     @Timestamp(key: .updatedAt, on: .update)
     var updatedAt: Date?
 
+    @Field(key: .completedOn)
+    var completedOn: Date?
+
+    @Enum(key: .visibility)
+    var visibility: Visibility
+
+    // MARK: Parents
     @Parent(key: .statusID)
     var status: Status
 
@@ -42,5 +49,6 @@ final class Todo: Model, Content {
         self.description = description
         self.$status.id = statusID
         self.$project.id = projectID
+        self.visibility = .all
     }
 }

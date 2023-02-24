@@ -18,4 +18,11 @@ extension FieldKey {
     static let updatedAt: FieldKey = "updated_at"
     static let statusID: FieldKey = "status_id"
     static let projectID: FieldKey = "project_id"
+    static let displayName: FieldKey = "diplay_name"
+    static let lastUsedNumber: FieldKey = "last_used_number"
+    static let completedOn: FieldKey = "completed_on"
+    static let visibility: FieldKey = "visibility"
+    static let isVotable: FieldKey = "is_votable"
+    static let upvotes: FieldKey = "up_votes"
+    static let downVotes: FieldKey = "down_votes"
 }
