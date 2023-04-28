@@ -25,4 +25,5 @@ extension FieldKey {
     static let isVotable: FieldKey = "is_votable"
     static let upvotes: FieldKey = "up_votes"
     static let downVotes: FieldKey = "down_votes"
+    static let todoID: FieldKey = "todo_id"
 }

@@ -28,9 +28,8 @@ final class Todo: Model, Content {
     @Enum(key: .visibility)
     var visibility: Visibility
 
-    // MARK: Parents
-    @Parent(key: .statusID)
-    var status: Status
+    @Siblings(through: TodoStatus.self, from: \.$todo, to: \.$status)
+    var status: [Status]
 
     @Parent(key: .projectID)
     var project: Project
@@ -47,7 +46,6 @@ final class Todo: Model, Content {
         self.id = id
         self.title = title
         self.description = description
-        self.$status.id = statusID
         self.$project.id = projectID
         self.visibility = .all
     }

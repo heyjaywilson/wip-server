@@ -19,9 +19,6 @@ final class Status: Model, Content {
     @Enum(key: .statusEquivalent)
     var statusEquivalent: StatusEquivalent
 
-    @Children(for: \.$status)
-    var todos: [Todo]
-
     init() { }
 
     init(
